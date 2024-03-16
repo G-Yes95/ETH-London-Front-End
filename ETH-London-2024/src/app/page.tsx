@@ -5,7 +5,6 @@ import { Button, Box, TextField, Typography } from "@mui/material";
 import Title from "../components/Title/Title";
 import Output from "../components/Output/Output";
 import styles from "./Page.module.css";
-import DynamicTextFieldComponent from "../components/DynamicTextFieldComponent/DynamicTextFieldComponent";
 
 interface TextFieldData {
   value: string;
@@ -85,6 +84,7 @@ function App() {
             {account.status === "connected" && (
               <button
                 className={styles.actionButton}
+                style={{ width: "8rem" }}
                 type="button"
                 onClick={() => disconnect()}
               >
@@ -120,7 +120,7 @@ function App() {
             <Output pdfUrl={pdfUrl} />
           </div>
 
-        </div>
+        </div >
       </div >
     </>
   );
