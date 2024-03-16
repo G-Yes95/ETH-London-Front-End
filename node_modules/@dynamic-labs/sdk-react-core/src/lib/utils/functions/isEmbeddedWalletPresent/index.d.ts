@@ -1,0 +1,1 @@
+export { isEmbeddedWalletPresent } from './isEmbeddedWalletPresent';

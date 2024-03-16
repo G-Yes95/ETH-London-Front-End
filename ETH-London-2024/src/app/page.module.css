@@ -4,9 +4,28 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  background-image: url("../assets/gif.webp");
-  background-size: cover; /* Adjust as needed */
-  background-repeat: no-repeat; /* Adjust as needed */
+  /* background-image: url("/public/gif.gif");
+  background-size: cover;
+  background-repeat: no-repeat; */
+  height: 100vh;
+}
+
+.contentRight {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.contentLeft {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .contentContainer {
@@ -14,32 +33,32 @@
   flex-direction: column; */
 }
 
-.buttonsContainer {
-  /* position: absolute;
+/* .buttonsContainer {
+  position: absolute;
   top: 10px;
   right: 10px;
   display: flex;
-  gap: 10px; */
-}
+  gap: 10px;
+} */
 
 .connectButtons {
-  /* position: absolute;
+  position: absolute;
   top: 10px;
   right: 10px;
   display: flex;
-  gap: 10px; */
+  gap: 10px;
 }
 
 .actionButton {
-  /* Styles for the action buttons */
   padding: 10px 20px;
-  background-color: #54d5aa;
+  background-color: #30bbab;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  gap: 10px;
 }
 
 .actionButton:hover {
-  background-color: #30102c;
+  background-color: #1b6c62;
 }

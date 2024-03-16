@@ -1,0 +1,1 @@
+export { validateType } from './validateType';

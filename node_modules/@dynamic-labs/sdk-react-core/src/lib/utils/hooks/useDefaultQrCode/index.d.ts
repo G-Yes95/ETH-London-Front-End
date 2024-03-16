@@ -1,0 +1,1 @@
+export { useDefaultQrCode } from './useDefaultQrCode';

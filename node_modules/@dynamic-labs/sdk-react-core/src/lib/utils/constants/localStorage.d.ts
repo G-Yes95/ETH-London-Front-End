@@ -1,0 +1,17 @@
+export declare const AUTH_TOKEN = "dynamic_authentication_token";
+export declare const AUTH_USER = "dynamic_authenticated_user";
+export declare const LAST_USED_WALLET = "dynamic_last_used_wallet";
+export declare const NETWORKS_STORAGE_KEY = "dynamic_networks";
+export declare const NONCE_STORAGE_KEY = "dynamic_nonce";
+export declare const PRIMARY_WALLET_ID = "dynamic_primary_wallet_id";
+export declare const PROJECT_SETTINGS_STORAGE_KEY = "dynamic_project_settings";
+export declare const THEME = "dynamic_theme";
+export declare const WALLET_PICKER_SEARCH_KEY = "dynamic_wallet_picker_search";
+export declare const NEWTOWEB3_WALLET_EXTENSION_FLAG_KEY = "dynamic_newtoweb3_wallet_extension_installed";
+export declare const CONNECTED_WALLETS_INFO = "dynamic_connected_wallets";
+export declare const AUTH_MODE = "dynamic_auth_mode";
+export declare const CONNECTED_WALLET_NAME_SERVICE = "dynamic_connected_wallet_ns";
+export declare const IS_FULLY_CONNECTED = "dynamic_fully_connected";
+export declare const IS_MULTI_WALLET_ENABLED = "dynamic_multi_wallet_enabled";
+export declare const DYNAMIC_CONTEXT_LAST_SESSION_SETTINGS = "dynamic_context_session_settings";
+export declare const WAGMI_LAST_SESSION_SETTINGS = "dynamic_wagmi_session_settings";

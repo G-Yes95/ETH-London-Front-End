@@ -1,0 +1,1 @@
+export { normalizeWalletName } from './normalizeWalletName';

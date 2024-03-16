@@ -20,18 +20,22 @@ function App() {
           <TextField />
           <DynamicTextFieldComponent />
 
-          <div>
+          <div className={styles.contentLeft}>
             <div>
-              <h2>Account</h2>
+              <div>{status}</div>
+              <div>{error?.message}</div>
               <div>
-                status: {account.status}
-                <br />
-                addresses: {JSON.stringify(account.addresses)}
-                <br />
-                chainId: {account.chainId}
+                <MintNft />
               </div>
             </div>
-
+            <h2>Account</h2>
+            <div>
+              status: {account.status}
+              <br />
+              addresses: {JSON.stringify(account.addresses)}
+              <br />
+              chainId: {account.chainId}
+            </div>
             {account.status === "connected" && (
               <button
                 className={styles.actionButton}
@@ -41,27 +45,20 @@ function App() {
                 Disconnect
               </button>
             )}
+          </div>
 
-            <div>
-              <h2>Connect</h2>
-              <div className={styles.connectButtons}>
-                {connectors.map((connector) => (
-                  <button
-                    className={styles.actionButton}
-                    key={connector.uid}
-                    onClick={() => connect({ connector })}
-                    type="button"
-                  >
-                    {connector.name}
-                  </button>
-                ))}
-              </div>
-              <div>{status}</div>
-              <div>{error?.message}</div>
-              <div>
-                {" "}
-                <MintNft />{" "}
-              </div>
+          <div>
+            <div className={styles.connectButtons}>
+              {connectors.map((connector) => (
+                <button
+                  className={styles.actionButton}
+                  key={connector.uid}
+                  onClick={() => connect({ connector })}
+                  type="button"
+                >
+                  {connector.name}
+                </button>
+              ))}
             </div>
           </div>
         </div>
