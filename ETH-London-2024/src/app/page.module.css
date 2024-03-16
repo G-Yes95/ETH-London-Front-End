@@ -1,0 +1,22 @@
+/* Page.module.css */
+
+.pageContainer {
+  position: relative;
+}
+
+.buttonsContainer {
+  position: absolute;
+  top: 10px;
+  /* Adjust the top distance as needed */
+  right: 10px;
+  /* Adjust the right distance as needed */
+  display: flex;
+  /* Make the buttons flex container */
+  gap: 10px;
+  /* Add gap between buttons */
+}
+
+/* Additional styles for the content container */
+.contentContainer {
+  /* Add any styles for the content container */
+}

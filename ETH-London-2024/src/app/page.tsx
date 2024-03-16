@@ -2,6 +2,9 @@
 
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
 import { MintNft } from './mint-nft'
+import Title from "../components/Title/Title";
+import TextField from "../components/TextField/TextField";
+import styles from "./Page.module.css";
 
 
 function App() {
@@ -11,39 +14,46 @@ function App() {
 
   return (
     <>
-      <div>
-        <h2>Account</h2>
+
+      <div className={styles.contentContainer}>
 
         <div>
-          status: {account.status}
-          <br />
-          addresses: {JSON.stringify(account.addresses)}
-          <br />
-          chainId: {account.chainId}
+          <Title />
+          <TextField />
+          <h2>Account</h2>
+
+          <div>
+            status: {account.status}
+            <br />
+            addresses: {JSON.stringify(account.addresses)}
+            <br />
+            chainId: {account.chainId}
+          </div>
+
+          {account.status === 'connected' && (
+            <button type="button" onClick={() => disconnect()}>
+              Disconnect
+            </button>
+          )}
         </div>
 
-        {account.status === 'connected' && (
-          <button type="button" onClick={() => disconnect()}>
-            Disconnect
-          </button>
-        )}
+        <div>
+          <h2>Connect</h2>
+          {connectors.map((connector) => (
+            <button
+              key={connector.uid}
+              onClick={() => connect({ connector })}
+              type="button"
+            >
+              {connector.name}
+            </button>
+          ))}
+          <div>{status}</div>
+          <div>{error?.message}</div>
+          <div> <MintNft /> </div>
+        </div>
       </div>
 
-      <div>
-        <h2>Connect</h2>
-        {connectors.map((connector) => (
-          <button
-            key={connector.uid}
-            onClick={() => connect({ connector })}
-            type="button"
-          >
-            {connector.name}
-          </button>
-        ))}
-        <div>{status}</div>
-        <div>{error?.message}</div>
-        <div> <MintNft /> </div>
-      </div>
     </>
   )
 }
