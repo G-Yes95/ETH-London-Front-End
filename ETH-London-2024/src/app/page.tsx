@@ -1,11 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
-import { Button, Box, TextField, Typography, Grid } from "@mui/material";
+import { Button, Box, TextField, Typography, Grid, Chip } from "@mui/material";
 import Title from "../components/Title/Title";
 import Output from "../components/Output/Output";
 import styles from "./Page.module.css";
 import DynamicTextFieldComponent from "../components/DynamicTextFieldComponent/DynamicTextFieldComponent";
+import { useWeb3Modal } from '@web3modal/wagmi/react'
+
 
 interface TextFieldData {
   value: string;
@@ -37,6 +39,9 @@ function App() {
     setTextFields(updatedpkFields);
   };
 
+  const { open } = useWeb3Modal()
+
+
   const handleRestAPICall = async () => {
     try {
       const textFieldValues = textFields.map((field) => field.value);
@@ -63,24 +68,19 @@ function App() {
             <div>
               <div>{error?.message}</div>
             </div>
-            <h2>Account</h2>
+            {/* <button onClick={() => open({ view: 'Networks' })}>Open Network Modal</button> */}
             <div>
-              status: {account.status}
-              <br />
-              addresses: {JSON.stringify(account.addresses)}
-              <br />
-              chainId: {account.chainId}
+              <Chip
+                label={account.addresses}
+                variant="outlined"
+                onClick={() => open({ view: 'Networks' })}
+                onDelete={() => disconnect()}
+                style={{ width: "20rem", height: "3rem", color: "white", fontSize: "2rem" }}
+
+              />
+
+
             </div>
-            {account.status === "connected" && (
-              <button
-                className={styles.actionButton}
-                type="button"
-                onClick={() => disconnect()}
-                style={{ width: "8rem" }}
-              >
-                Disconnect
-              </button>
-            )}
           </div>
 
           <div>
@@ -133,7 +133,7 @@ function App() {
             </Grid>
           </div>
         </div>
-      </div>
+      </div >
     </>
   );
 }
