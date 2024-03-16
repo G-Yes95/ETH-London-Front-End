@@ -1,10 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
-import { Button, Box, TextField, Typography } from "@mui/material";
+import { Button, Box, TextField, Typography, Grid } from "@mui/material";
 import Title from "../components/Title/Title";
 import Output from "../components/Output/Output";
 import styles from "./Page.module.css";
+import DynamicTextFieldComponent from "../components/DynamicTextFieldComponent/DynamicTextFieldComponent";
 
 interface TextFieldData {
   value: string;
@@ -19,9 +20,16 @@ function App() {
   const [textFields, setTextFields] = useState<TextFieldData[]>([
     { value: "", status: "Status : Unsigned" },
   ]);
+
   const [pdfUrl, setPdfUrl] = useState<string>(
     "https://docamatic.s3.eu-west-1.amazonaws.com/prod/4b969005-6bc9-4da2-8525-18e4e1e017ec/4fea55cb-6abd-4b0d-906d-97835d7eda2f.pdf"
   );
+
+  const handleTextFieldChange = (index: number, value: string) => {
+    const updatedTextFields = [...textFields];
+    updatedTextFields[index].value = value;
+    setTextFields(updatedTextFields);
+  };
 
   const handleRestAPICall = async () => {
     try {
@@ -36,9 +44,6 @@ function App() {
 
       const data = await response.json();
       console.log(data); // Handle response data here
-
-      // Assuming the response data contains the URL of the PDF
-      setPdfUrl(data.pdfUrl);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -65,9 +70,9 @@ function App() {
             {account.status === "connected" && (
               <button
                 className={styles.actionButton}
-                style={{ width: "8rem" }}
                 type="button"
                 onClick={() => disconnect()}
+                style={{ width: "8rem" }}
               >
                 Disconnect
               </button>
@@ -98,10 +103,21 @@ function App() {
             >
               Make REST API Call
             </button>
-            <Output pdfUrl={pdfUrl} />
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <div>
+                  <DynamicTextFieldComponent
+                    textFields={textFields}
+                    setTextFields={setTextFields}
+                    handleTextFieldChange={handleTextFieldChange}
+                  />
+                </div>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <Output pdfUrl={pdfUrl} />
+              </Grid>
+            </Grid>
           </div>
-
-          {/* Box to embed PDF */}
         </div>
       </div>
     </>
