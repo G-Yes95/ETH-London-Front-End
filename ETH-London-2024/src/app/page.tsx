@@ -5,7 +5,7 @@ import { MintNft } from './mint-nft'
 import Title from "../components/Title/Title";
 import TextField from "../components/TextField/TextField";
 import styles from "./Page.module.css";
-
+import DynamicTextFieldComponent from "../components/DynamicTextFieldComponent/DynamicTextFieldComponent";
 
 function App() {
   const account = useAccount()
@@ -20,6 +20,7 @@ function App() {
         <div>
           <Title />
           <TextField />
+          <DynamicTextFieldComponent />
           <h2>Account</h2>
 
           <div>
