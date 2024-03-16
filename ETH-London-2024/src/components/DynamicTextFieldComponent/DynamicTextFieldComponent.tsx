@@ -30,6 +30,7 @@ const DynamicTextFieldComponent: React.FC = () => {
               value={textField.value}
               onChange={(e) => handleTextFieldChange(index, e.target.value)}
               fullWidth
+              InputProps={{ style: { backgroundColor: 'white' } }}
               variant="outlined"
               margin="normal"
             />

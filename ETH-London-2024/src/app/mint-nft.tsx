@@ -29,14 +29,13 @@ export function MintNft() {
 
   return (
     <form onSubmit={submit}>
-      <input name="address" placeholder="0xA0Cf…251e" required />
-      <input name="value" placeholder="0.05" required />
+
       <button
         disabled={isPending}
         type="submit"
         className={styles.actionButton}
       >
-        {isPending ? "Confirming..." : "Mint"}
+        {isPending ? "Confirming..." : "SIGN & PRINT"}
       </button>
       {hash && <div>Transaction Hash: {hash}</div>}
       {isConfirming && <div>Waiting for confirmation...</div>}

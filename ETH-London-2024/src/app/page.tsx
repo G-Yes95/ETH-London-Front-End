@@ -17,16 +17,16 @@ function App() {
       <div className={styles.pageContainer}>
         <div className={styles.contentContainer}>
           <Title />
-          <TextField />
           <DynamicTextFieldComponent />
+          <div>
+            <MintNft />
+          </div>
 
           <div className={styles.contentLeft}>
             <div>
               <div>{status}</div>
               <div>{error?.message}</div>
-              <div>
-                <MintNft />
-              </div>
+
             </div>
             <h2>Account</h2>
             <div>
