@@ -25,12 +25,15 @@ export default function MyForm() {
     <Box
       component="form"
       sx={{
-        "& > :not(style)": { m: 1, width: "25ch" },
+        display: "flex",
+        margin: "0 auto",
+        alignItems: "center",
+        "& > :not(style)": { m: 0, width: "50ch" },
       }}
       noValidate
       autoComplete="off"
     >
-      <CustomTextField label="Outlined" variant="outlined" />
+      <CustomTextField label="Type here" variant="outlined" />
     </Box>
   );
 }

@@ -1,22 +1,45 @@
 /* Page.module.css */
 
 .pageContainer {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  background-image: url("../assets/gif.webp");
+  background-size: cover; /* Adjust as needed */
+  background-repeat: no-repeat; /* Adjust as needed */
+}
+
+.contentContainer {
+  /* display: flex;
+  flex-direction: column; */
 }
 
 .buttonsContainer {
-  position: absolute;
+  /* position: absolute;
   top: 10px;
-  /* Adjust the top distance as needed */
   right: 10px;
-  /* Adjust the right distance as needed */
   display: flex;
-  /* Make the buttons flex container */
-  gap: 10px;
-  /* Add gap between buttons */
+  gap: 10px; */
 }
 
-/* Additional styles for the content container */
-.contentContainer {
-  /* Add any styles for the content container */
+.connectButtons {
+  /* position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px; */
+}
+
+.actionButton {
+  /* Styles for the action buttons */
+  padding: 10px 20px;
+  background-color: #54d5aa;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.actionButton:hover {
+  background-color: #30102c;
 }

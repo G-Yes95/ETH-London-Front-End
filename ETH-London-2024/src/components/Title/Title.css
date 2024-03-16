@@ -1,9 +1,8 @@
 h1 {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: 14rem auto 2rem auto;
   font-size: 4rem;
   align-items: center;
-  height: 25vh;
   font-family: "MartianGrotesk", sans-serif;
 }
