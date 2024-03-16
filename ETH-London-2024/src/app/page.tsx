@@ -120,8 +120,6 @@ function App() {
             <Output pdfUrl={pdfUrl} />
           </div>
 
-          {/* Box to embed PDF */}
-
         </div>
       </div >
     </>
