@@ -25,7 +25,11 @@ export default function MyForm() {
     <Box
       component="form"
       sx={{
-        "& > :not(style)": { m: 1, width: "25ch" },
+        display: "flex",
+        justifyContent: "center",
+        margin: "0 auto",
+        alignItems: "center",
+        height: "100vh",
       }}
       noValidate
       autoComplete="off"

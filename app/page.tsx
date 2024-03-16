@@ -50,7 +50,12 @@ const Main = () => {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.buttonsContainer}>
-        <button onClick={() => signMessage(primaryWallet)}>Sign Message</button>
+        <button
+          className={styles.actionButton}
+          onClick={() => signMessage(primaryWallet)}
+        >
+          Sign Message
+        </button>
         <DynamicWidget />
       </div>
       <div className={styles.contentContainer}>
