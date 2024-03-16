@@ -6,12 +6,16 @@ import { useDynamicContext, DynamicWidget } from "@dynamic-labs/sdk-react-core";
 //   useWaitForTransaction,
 // } from "wagmi";
 // import { FC } from "react";
+import Title from "../components/Title/Title";
+import TextField from "../components/TextField/TextField";
+import styles from "./Page.module.css";
 
 const Main = () => {
   const { primaryWallet } = useDynamicContext();
 
   const signMessage = async (primaryWallet: any) => {
     if (!primaryWallet) {
+      alert("No wallets are connected");
       console.log("No wallets are connected");
     } else {
       console.log(primaryWallet.address);
@@ -44,9 +48,15 @@ const Main = () => {
   // });
 
   return (
-    <div>
-      <DynamicWidget />
-      <button onClick={() => signMessage(primaryWallet)}>Sign Message</button>
+    <div className={styles.pageContainer}>
+      <div className={styles.buttonsContainer}>
+        <button onClick={() => signMessage(primaryWallet)}>Sign Message</button>
+        <DynamicWidget />
+      </div>
+      <div className={styles.contentContainer}>
+        <Title />
+        <TextField />
+      </div>
       <div>
         {/* <p>Mint NFT</p>
         <button disabled={!write || isLoading} onClick={() => write?.()}>
