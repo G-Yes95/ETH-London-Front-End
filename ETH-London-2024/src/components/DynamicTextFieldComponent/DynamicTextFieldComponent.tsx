@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
 import { Button, Box, TextField, Typography } from '@mui/material';
 
+interface Props {
+  textFields: TextFieldData[];
+  setTextFields: React.Dispatch<React.SetStateAction<TextFieldData[]>>;
+  handleTextFieldChange: (index: number, value: string) => void;
+}
+
 interface TextFieldData {
   value: string;
   status: string;
 }
 
-const DynamicTextFieldComponent: React.FC = () => {
-  const [textFields, setTextFields] = useState<TextFieldData[]>([{ value: '', status: 'Status : Unsigned' }]);
-
+const DynamicTextFieldComponent: React.FC<Props> = ({ textFields, setTextFields, handleTextFieldChange }) => {
   const addTextField = () => {
     setTextFields([...textFields, { value: '', status: `Status : Unsigned` }]);
-  };
-
-  const handleTextFieldChange = (index: number, value: string) => {
-    const updatedTextFields = [...textFields];
-    updatedTextFields[index].value = value;
-    setTextFields(updatedTextFields);
   };
 
   return (
