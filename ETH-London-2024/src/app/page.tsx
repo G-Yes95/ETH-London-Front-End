@@ -57,16 +57,7 @@ function App() {
       <div className={styles.pageContainer}>
         <div className={styles.contentContainer}>
           <Title />
-          <div>
-            <DynamicTextFieldComponent
-              textFields={textFields}
-              setTextFields={setTextFields}
-              handleTextFieldChange={handleTextFieldChange}
-              pkFields={pkFields}
-              setpkFields={setpkFields}
-              handlepkFieldChange={handlepkFieldChange}
-            />
-          </div>
+
 
           <div className={styles.contentLeft}>
             <div>
