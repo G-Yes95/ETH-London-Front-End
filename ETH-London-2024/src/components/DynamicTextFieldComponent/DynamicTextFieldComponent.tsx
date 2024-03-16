@@ -5,16 +5,18 @@ interface Props {
   textFields: TextFieldData[];
   setTextFields: React.Dispatch<React.SetStateAction<TextFieldData[]>>;
   handleTextFieldChange: (index: number, value: string) => void;
+  pkFields: TextFieldData[];
+  setpkFields: React.Dispatch<React.SetStateAction<TextFieldData[]>>;
+  handlepkFieldChange: (index: number, value: string) => void;
 }
 
 interface TextFieldData {
   value: string;
-  status: string;
 }
 
-const DynamicTextFieldComponent: React.FC<Props> = ({ textFields, setTextFields, handleTextFieldChange }) => {
+const DynamicTextFieldComponent: React.FC<Props> = ({ textFields, setTextFields, handleTextFieldChange, pkFields, setpkFields, handlepkFieldChange }) => {
   const addTextField = () => {
-    setTextFields([...textFields, { value: '', status: `Status : Unsigned` }]);
+    setTextFields([...textFields, { value: '' }]);
   };
 
   return (
@@ -24,7 +26,7 @@ const DynamicTextFieldComponent: React.FC<Props> = ({ textFields, setTextFields,
         {textFields.map((textField, index) => (
           <Box key={index} display="flex" alignItems="center" mt={1}>
             <TextField
-              label={`Text Field ${index + 1}`}
+              label={`Public Key ${index + 1}`}
               value={textField.value}
               onChange={(e) => handleTextFieldChange(index, e.target.value)}
               fullWidth
@@ -32,7 +34,15 @@ const DynamicTextFieldComponent: React.FC<Props> = ({ textFields, setTextFields,
               variant="outlined"
               margin="normal"
             />
-            <Typography variant="body2" ml={2}>{textField.status}</Typography>
+            <TextField
+              label={`Signature ${index + 1}`}
+              value={textField.value}
+              onChange={(e) => handleTextFieldChange(index, e.target.value)}
+              fullWidth
+              InputProps={{ style: { backgroundColor: 'white' } }}
+              variant="outlined"
+              margin="normal"
+            />
           </Box>
         ))}
       </Box>

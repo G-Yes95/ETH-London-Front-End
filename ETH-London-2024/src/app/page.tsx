@@ -9,7 +9,6 @@ import DynamicTextFieldComponent from "../components/DynamicTextFieldComponent/D
 
 interface TextFieldData {
   value: string;
-  status: string;
 }
 
 function App() {
@@ -17,13 +16,21 @@ function App() {
   const { connectors, connect, status, error } = useConnect();
   const { disconnect } = useDisconnect();
 
-  const [textFields, setTextFields] = useState<TextFieldData[]>([{ value: '', status: 'Status : Unsigned' }]);
+  const [textFields, setTextFields] = useState<TextFieldData[]>([{ value: '' }]);
+  const [pkFields, setpkFields] = useState<TextFieldData[]>([{ value: '' }]);
+
   const [pdfUrl, setPdfUrl] = useState<string>('https://docamatic.s3.eu-west-1.amazonaws.com/prod/4b969005-6bc9-4da2-8525-18e4e1e017ec/4fea55cb-6abd-4b0d-906d-97835d7eda2f.pdf');
 
   const handleTextFieldChange = (index: number, value: string) => {
     const updatedTextFields = [...textFields];
     updatedTextFields[index].value = value;
     setTextFields(updatedTextFields);
+  };
+
+  const handlepkFieldChange = (index: number, value: string) => {
+    const updatedpkFields = [...pkFields];
+    updatedpkFields[index].value = value;
+    setTextFields(updatedpkFields);
   };
 
   const handleRestAPICall = async () => {
@@ -57,6 +64,9 @@ function App() {
               textFields={textFields}
               setTextFields={setTextFields}
               handleTextFieldChange={handleTextFieldChange}
+              pkFields={pkFields}
+              setpkFields={setpkFields}
+              handlepkFieldChange={handlepkFieldChange}
             />
           </div>
 
