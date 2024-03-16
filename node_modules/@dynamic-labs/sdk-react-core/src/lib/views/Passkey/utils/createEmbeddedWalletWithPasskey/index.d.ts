@@ -1,0 +1,1 @@
+export { createEmbeddedWalletWithPasskey } from './createEmbeddedWalletWithPasskey';

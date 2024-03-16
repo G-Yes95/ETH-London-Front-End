@@ -1,0 +1,1 @@
+export { findTurnkeyVerifiedCredential } from './findTurnkeyVerifiedCredential';

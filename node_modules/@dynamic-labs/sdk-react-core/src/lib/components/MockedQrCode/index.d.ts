@@ -1,0 +1,1 @@
+export { MockedQrCode } from './MockedQrCode';

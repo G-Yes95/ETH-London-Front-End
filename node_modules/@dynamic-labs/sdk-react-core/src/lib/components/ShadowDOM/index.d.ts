@@ -1,0 +1,1 @@
+export { ShadowDOM } from './ShadowDOM';

@@ -1,0 +1,1 @@
+export { isTestnet } from './isTestnet';

@@ -1,0 +1,20 @@
+import { FC, MouseEventHandler, ReactNode } from 'react';
+import { SendBalanceFormValues } from '../SendBalanceForm/SendBalanceForm';
+export type SendBalancePageLayoutProps = {
+    balance: string | undefined;
+    chain: string;
+    currencySymbol: string;
+    displayPoweredByDynamicFooter?: boolean;
+    error?: string;
+    initialValues?: SendBalanceFormValues;
+    isLoading: boolean;
+    networkIcon?: ReactNode;
+    networkName?: string;
+    networkCurrencyDecimals?: number;
+    onClickBack?: MouseEventHandler<HTMLButtonElement>;
+    onClickClose?: MouseEventHandler<HTMLButtonElement>;
+    onSubmit: (formValues: SendBalanceFormValues) => void;
+    walletAddress: string;
+    walletKey: string;
+};
+export declare const SendBalancePageLayout: FC<SendBalancePageLayoutProps>;
