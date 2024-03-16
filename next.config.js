@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  webpack: (config, { isServer }) => {
+    config.resolve.extensions.push(".js", ".jsx");
 
-module.exports = nextConfig
+    return config;
+  },
+};
+
+module.exports = nextConfig;

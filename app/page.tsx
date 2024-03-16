@@ -1,11 +1,11 @@
 "use client";
 import { useDynamicContext, DynamicWidget } from "@dynamic-labs/sdk-react-core";
-// import {
-//   useContractWrite,
-//   usePrepareContractWrite,
-//   useWaitForTransaction,
-// } from "wagmi";
-// import { FC } from "react";
+import {
+  useContractWrite,
+  usePrepareContractWrite,
+  useWaitForTransaction,
+} from "wagmi";
+import { FC } from "react";
 
 const Main = () => {
   const { primaryWallet } = useDynamicContext();
@@ -23,25 +23,25 @@ const Main = () => {
     return signer ? await signer.signMessage("example") : null;
   };
 
-  // const { config } = usePrepareContractWrite({
-  //   abi: [
-  //     {
-  //       inputs: [],
-  //       name: "mint",
-  //       outputs: [],
-  //       stateMutability: "nonpayable",
-  //       type: "function",
-  //     },
-  //   ] as const,
-  //   address: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-  //   functionName: "mint",
-  // });
+  const { config } = usePrepareContractWrite({
+    abi: [
+      {
+        inputs: [],
+        name: "mint",
+        outputs: [],
+        stateMutability: "nonpayable",
+        type: "function",
+      },
+    ] as const,
+    address: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    functionName: "mint",
+  });
 
-  // const { data, write } = useContractWrite(config);
+  const { data, write } = useContractWrite(config);
 
-  // const { isLoading, isSuccess } = useWaitForTransaction({
-  //   hash: data?.hash,
-  // });
+  const { isLoading, isSuccess } = useWaitForTransaction({
+    hash: data?.hash,
+  });
 
   return (
     <div>
