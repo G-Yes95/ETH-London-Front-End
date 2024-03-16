@@ -1,11 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
-import { Button, Box, TextField, Typography } from "@mui/material";
+import { Button, Box, TextField, Typography, Grid } from "@mui/material";
 import Title from "../components/Title/Title";
 import Output from "../components/Output/Output";
 import styles from "./Page.module.css";
-import DynamicTextFieldComponent from "@/components/DynamicTextFieldComponent/DynamicTextFieldComponent";
+import DynamicTextFieldComponent from "../components/DynamicTextFieldComponent/DynamicTextFieldComponent";
+
 interface TextFieldData {
   value: string;
 }
@@ -32,6 +33,7 @@ function App() {
     setTextFields(updatedpkFields);
   };
 
+
   const handleRestAPICall = async () => {
     try {
       const textFieldValues = textFields.map((field) => field.value);
@@ -45,9 +47,6 @@ function App() {
 
       const data = await response.json();
       console.log(data); // Handle response data here
-
-      // Assuming the response data contains the URL of the PDF
-      setPdfUrl(data.pdfUrl);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -84,9 +83,9 @@ function App() {
             {account.status === "connected" && (
               <button
                 className={styles.actionButton}
-                style={{ width: "8rem" }}
                 type="button"
                 onClick={() => disconnect()}
+                style={{ width: "8rem" }}
               >
                 Disconnect
               </button>
@@ -117,7 +116,23 @@ function App() {
             >
               Make REST API Call
             </button>
-            <Output pdfUrl={pdfUrl} />
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <div>
+                  <DynamicTextFieldComponent
+                    textFields={textFields}
+                    setTextFields={setTextFields}
+                    handleTextFieldChange={handleTextFieldChange}
+                    pkFields={pkFields}
+                    setpkFields={setpkFields}
+                    handlepkFieldChange={handlepkFieldChange}
+                  />
+                </div>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <Output pdfUrl={pdfUrl} />
+              </Grid>
+            </Grid>
           </div>
 
         </div >
