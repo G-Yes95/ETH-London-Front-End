@@ -107,15 +107,11 @@ function App() {
             >
               Make REST API Call
             </button>
-            <Output />
+            <Output pdfUrl={pdfUrl} />
           </div>
 
           {/* Box to embed PDF */}
-          {pdfUrl && (
-            <Box mt={2} height={'12vh'}>
-              <embed src={pdfUrl} type="application/pdf" width="100%" height="600px" />
-            </Box>
-          )}
+
         </div>
       </div >
     </>
