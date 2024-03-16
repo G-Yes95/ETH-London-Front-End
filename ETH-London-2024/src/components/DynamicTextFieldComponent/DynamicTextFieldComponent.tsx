@@ -40,6 +40,7 @@ const DynamicTextFieldComponent: React.FC<Props> = ({
           >
             <TextField
               label={`Public Key ${index + 1}`}
+              color="secondary"
               value={textField.value}
               onChange={(e) => handleTextFieldChange(index, e.target.value)}
               fullWidth
@@ -54,6 +55,7 @@ const DynamicTextFieldComponent: React.FC<Props> = ({
               fullWidth
               InputProps={{ style: { backgroundColor: "white" } }}
               variant="outlined"
+              color="secondary"
               margin="normal"
             />
           </Box>
