@@ -1,8 +1,9 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
-import { Button, Box, TextField, Typography } from '@mui/material';
+import { Button, Box, TextField, Typography } from "@mui/material";
 import Title from "../components/Title/Title";
+import Output from "../components/Output/Output";
 import styles from "./Page.module.css";
 import DynamicTextFieldComponent from "../components/DynamicTextFieldComponent/DynamicTextFieldComponent";
 
@@ -16,7 +17,9 @@ function App() {
   const { connectors, connect, status, error } = useConnect();
   const { disconnect } = useDisconnect();
 
-  const [textFields, setTextFields] = useState<TextFieldData[]>([{ value: '', status: 'Status : Unsigned' }]);
+  const [textFields, setTextFields] = useState<TextFieldData[]>([
+    { value: "", status: "Status : Unsigned" },
+  ]);
 
   const handleTextFieldChange = (index: number, value: string) => {
     const updatedTextFields = [...textFields];
@@ -26,20 +29,19 @@ function App() {
 
   const handleRestAPICall = async () => {
     try {
-      const textFieldValues = textFields.map(field => field.value);
+      const textFieldValues = textFields.map((field) => field.value);
       const url = `https://example.com/api/data?textField1=${textFieldValues[0]}&textField2=${textFieldValues[1]}`;
       console.log(url, "url");
       const response = await fetch(url);
 
-
       if (!response.ok) {
-        throw new Error('Failed to fetch data');
+        throw new Error("Failed to fetch data");
       }
 
       const data = await response.json();
       console.log(data); // Handle response data here
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
     }
   };
 
@@ -96,9 +98,14 @@ function App() {
 
           {/* Button to make REST API call */}
           <div>
-            <button className={styles.actionButton} onClick={handleRestAPICall} type="button">
+            <button
+              className={styles.actionButton}
+              onClick={handleRestAPICall}
+              type="button"
+            >
               Make REST API Call
             </button>
+            <Output />
           </div>
         </div>
       </div>
