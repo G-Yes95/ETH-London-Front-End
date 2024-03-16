@@ -18,7 +18,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   background:
-    linear-gradient(rgba(29, 29, 29, 0.7), rgba(32, 32, 32, 0.9)),
+    linear-gradient(rgba(32, 32, 32, 0.8), rgba(29, 29, 29, 0.7)),
     url("/background.webp") center/cover no-repeat;
   z-index: -1;
   height: 100vh; /* Set the height of the container to 100vh */
