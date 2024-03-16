@@ -1,12 +1,7 @@
 /* Page.module.css */
 
 .pageContainer {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  /* background-image: url("/public/gif.gif");
-  background-size: cover;
-  background-repeat: no-repeat; */
+  margin: 0 2rem;
   height: 100vh;
 }
 
@@ -26,11 +21,6 @@
   gap: 10px;
   display: flex;
   flex-direction: column;
-}
-
-.contentContainer {
-  /* display: flex;
-  flex-direction: column; */
 }
 
 /* .buttonsContainer {

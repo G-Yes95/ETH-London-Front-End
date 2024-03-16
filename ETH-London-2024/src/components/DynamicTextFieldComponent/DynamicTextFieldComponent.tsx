@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Button, Box, TextField, Typography } from '@mui/material';
+import React, { useState } from "react";
+import { Button, Box, TextField, Typography } from "@mui/material";
+import styles from "../../app/page.module.css";
 
 interface Props {
   textFields: TextFieldData[];
@@ -14,23 +15,35 @@ interface TextFieldData {
   value: string;
 }
 
-const DynamicTextFieldComponent: React.FC<Props> = ({ textFields, setTextFields, handleTextFieldChange, pkFields, setpkFields, handlepkFieldChange }) => {
+const DynamicTextFieldComponent: React.FC<Props> = ({
+  textFields,
+  setTextFields,
+  handleTextFieldChange,
+  pkFields,
+  setpkFields,
+  handlepkFieldChange,
+}) => {
   const addTextField = () => {
-    setTextFields([...textFields, { value: '' }]);
+    setTextFields([...textFields, { value: "" }]);
   };
 
   return (
     <div>
-      <Button variant="contained" onClick={addTextField}>Add Signer</Button>
       <Box mt={2}>
         {textFields.map((textField, index) => (
-          <Box key={index} display="flex" alignItems="center" mt={1}>
+          <Box
+            key={index}
+            display="flex"
+            alignItems="center"
+            mt={1}
+            style={{ gap: "10px" }}
+          >
             <TextField
               label={`Public Key ${index + 1}`}
               value={textField.value}
               onChange={(e) => handleTextFieldChange(index, e.target.value)}
               fullWidth
-              InputProps={{ style: { backgroundColor: 'white' } }}
+              InputProps={{ style: { backgroundColor: "white" } }}
               variant="outlined"
               margin="normal"
             />
@@ -39,13 +52,25 @@ const DynamicTextFieldComponent: React.FC<Props> = ({ textFields, setTextFields,
               value={textField.value}
               onChange={(e) => handleTextFieldChange(index, e.target.value)}
               fullWidth
-              InputProps={{ style: { backgroundColor: 'white' } }}
+              InputProps={{ style: { backgroundColor: "white" } }}
               variant="outlined"
               margin="normal"
             />
           </Box>
         ))}
       </Box>
+      <Button
+        variant="contained"
+        onClick={addTextField}
+        className={styles.actionButton}
+        style={{
+          marginBottom: "10px",
+          marginTop: "10px",
+          textTransform: "capitalize",
+        }}
+      >
+        Add Signer
+      </Button>
     </div>
   );
 };

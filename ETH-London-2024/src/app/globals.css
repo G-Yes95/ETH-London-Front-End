@@ -4,8 +4,6 @@
 }
 
 :root {
-  /* background-color: #181818; */
-  /* color: rgba(255, 255, 255, 0.87); */
   color-scheme: light dark;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
@@ -17,11 +15,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  background:
-    linear-gradient(rgba(32, 32, 32, 0.8), rgba(29, 29, 29, 0.7)),
-    url("/background.webp") center/cover no-repeat;
+  background: linear-gradient(rgba(32, 32, 32, 0.8), rgba(29, 29, 29, 0.7)),
+    url("/background.webp");
   z-index: -1;
-  height: 100vh; /* Set the height of the container to 100vh */
+  /* height: 100vh; */
+  margin: 0.5rem 1.5rem;
+  /* Set the height of the container to 100vh */
 }
 
 @media (prefers-color-scheme: light) {

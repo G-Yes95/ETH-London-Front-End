@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from "react";
 import "./Output.css";
-import { Button, Box, TextField, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
 interface Props {
   pdfUrl: string;
@@ -9,15 +9,16 @@ interface Props {
 const Output: React.FC<Props> = ({ pdfUrl }) => {
   return (
     <div className="output">
-      <p>Output</p>
       {pdfUrl && (
-        <Box mt={2} height={"12vh"}>
-          <embed
-            src={pdfUrl}
-            type="application/pdf"
-            width="100%"
-            height="600px"
-          />
+        <Box mt={4} maxWidth={"100%"}>
+          <div style={{ width: "100%", margin: "0 auto" }}>
+            <embed
+              src={pdfUrl}
+              type="application/pdf"
+              width="100%"
+              height="700px" // Adjust the height to fit the entire PDF content
+            />
+          </div>
         </Box>
       )}
     </div>

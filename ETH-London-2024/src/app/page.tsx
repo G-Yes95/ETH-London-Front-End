@@ -16,10 +16,14 @@ function App() {
   const { connectors, connect, status, error } = useConnect();
   const { disconnect } = useDisconnect();
 
-  const [textFields, setTextFields] = useState<TextFieldData[]>([{ value: '' }]);
-  const [pkFields, setpkFields] = useState<TextFieldData[]>([{ value: '' }]);
+  const [textFields, setTextFields] = useState<TextFieldData[]>([
+    { value: "" },
+  ]);
+  const [pkFields, setpkFields] = useState<TextFieldData[]>([{ value: "" }]);
 
-  const [pdfUrl, setPdfUrl] = useState<string>('https://docamatic.s3.eu-west-1.amazonaws.com/prod/4b969005-6bc9-4da2-8525-18e4e1e017ec/4fea55cb-6abd-4b0d-906d-97835d7eda2f.pdf');
+  const [pdfUrl, setPdfUrl] = useState<string>(
+    "https://docamatic.s3.eu-west-1.amazonaws.com/prod/4b969005-6bc9-4da2-8525-18e4e1e017ec/4fea55cb-6abd-4b0d-906d-97835d7eda2f.pdf"
+  );
 
   const handleTextFieldChange = (index: number, value: string) => {
     const updatedTextFields = [...textFields];
@@ -32,7 +36,6 @@ function App() {
     updatedpkFields[index].value = value;
     setTextFields(updatedpkFields);
   };
-
 
   const handleRestAPICall = async () => {
     try {
@@ -54,11 +57,8 @@ function App() {
 
   return (
     <>
-      <div className={styles.pageContainer}>
-        <div className={styles.contentContainer}>
-          <Title />
-
-
+      <div>
+        <div className={styles.pageContainer}>
           <div className={styles.contentLeft}>
             <div>
               <div>{error?.message}</div>
@@ -100,15 +100,14 @@ function App() {
 
           {/* Button to make REST API call */}
           <div>
-            <button
-              className={styles.actionButton}
-              onClick={handleRestAPICall}
-              type="button"
+            <Title />
+            <Grid
+              container
+              spacing={4}
+              direction="row"
+              justifyContent="space-around"
             >
-              Make REST API Call
-            </button>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={6} sm={6}>
                 <div>
                   <DynamicTextFieldComponent
                     textFields={textFields}
@@ -119,15 +118,22 @@ function App() {
                     handlepkFieldChange={handlepkFieldChange}
                   />
                 </div>
+                <button
+                  className={styles.actionButton}
+                  onClick={handleRestAPICall}
+                  type="button"
+                  style={{ padding: "1rem" }}
+                >
+                  Make REST API Call
+                </button>
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={6} sm={6}>
                 <Output pdfUrl={pdfUrl} />
               </Grid>
             </Grid>
           </div>
-
-        </div >
-      </div >
+        </div>
+      </div>
     </>
   );
 }
