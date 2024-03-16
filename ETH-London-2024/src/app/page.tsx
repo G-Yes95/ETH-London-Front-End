@@ -5,7 +5,7 @@ import { Button, Box, TextField, Typography } from "@mui/material";
 import Title from "../components/Title/Title";
 import Output from "../components/Output/Output";
 import styles from "./Page.module.css";
-
+import DynamicTextFieldComponent from "@/components/DynamicTextFieldComponent/DynamicTextFieldComponent";
 interface TextFieldData {
   value: string;
 }
