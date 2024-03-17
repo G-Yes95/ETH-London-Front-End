@@ -4,7 +4,7 @@ import "./Title.css";
 const Title: React.FC = () => {
   return (
     <div className="title">
-      <h1>blockusign</h1>
+      <h1>blocusign</h1>
     </div>
   );
 };
