@@ -44,19 +44,27 @@ function App() {
 
   const handleRestAPICall = async () => {
     try {
-      const textFieldValues = textFields.map((field) => field.value);
-      const url = `https://example.com/api/data?textField1=${textFieldValues[0]}&textField2=${textFieldValues[1]}`;
-      console.log(url, "url");
-      const response = await fetch(url);
+      const addresses = textFields.map(field => field.value);
+
+      const requestOptions: RequestInit = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ addresses })
+      };
+
+
+      const response = await fetch('https://59fb-213-152-241-52.ngrok-free.app/propose-safe', requestOptions);
 
       if (!response.ok) {
-        throw new Error("Failed to fetch data");
+        throw new Error('Failed to fetch data');
       }
 
       const data = await response.json();
       console.log(data); // Handle response data here
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error('Error fetching data:', error);
     }
   };
 
