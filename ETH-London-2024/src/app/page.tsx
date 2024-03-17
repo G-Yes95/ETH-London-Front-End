@@ -4,7 +4,7 @@ import { useAccount, useConnect, useDisconnect } from "wagmi";
 import { Button, Box, TextField, Typography, Grid, Chip } from "@mui/material";
 import Title from "../components/Title/Title";
 import Output from "../components/Output/Output";
-import styles from "./Page.module.css";
+import styles from "./page.module.css";
 import DynamicTextFieldComponent from "../components/DynamicTextFieldComponent/DynamicTextFieldComponent";
 import { useWeb3Modal } from '@web3modal/wagmi/react'
 
