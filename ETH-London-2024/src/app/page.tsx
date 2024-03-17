@@ -106,6 +106,7 @@ function App() {
               spacing={4}
               direction="row"
               justifyContent="space-around"
+              alignContent="center"
             >
               <Grid item xs={6} sm={6}>
                 <div>
