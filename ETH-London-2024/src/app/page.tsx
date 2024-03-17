@@ -36,7 +36,7 @@ function App() {
   const handlepkFieldChange = (index: number, value: string) => {
     const updatedpkFields = [...pkFields];
     updatedpkFields[index].value = value;
-    setTextFields(updatedpkFields);
+    setpkFields(updatedpkFields);
   };
 
   const { open } = useWeb3Modal()
